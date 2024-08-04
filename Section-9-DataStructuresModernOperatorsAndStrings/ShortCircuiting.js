@@ -17,28 +17,6 @@ console.log(true || false); // Output: true
 
 // Short-circuiting helps make your code cleaner and faster by skipping unnecessary checks.
 
-//Ex: Function Execution:
-let user = {
-  name: "Alice",
-  login: function () {
-    console.log("User logged in");
-  },
-};
-user && user.login();
-// Output: User logged in
-
-//Ex: Setting Default Values:
-let userName = "";
-let displayName = userName || "Guest";
-console.log(displayName);
-// Output: Guest
-
-//Ex: Fallback values:
-let primaryColor = null;
-let secondaryColor = "blue";
-let color = primaryColor || secondaryColor;
-console.log(color);
-// Output: blue
 // ------------------------------------------------------- Jonas sir
 console.log("--------- OR || Operator ----------------");
 
@@ -112,7 +90,7 @@ const restaurant = {
     );
   },
 };
-// ex: setting Default value:
+// Practical Example: setting Default value:
 //1. Using conditional operator: ternary operator(?)
 
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
@@ -141,3 +119,39 @@ console.log("--------- AND && Operator ----------------");
 // when first value is falsy, then returns falsy value, willnot evaluate next one, this is short-circuiting by AND operator.
 console.log(0 && "Jay"); // 0, 0 = falsy
 console.log("Jay" && 0); // 0, first value is truthy, so evaluat next one , this is not short-circuiting.
+console.log("Jay" && "Singh"); // Singh
+console.log("Hello" && 44 && null && "Jay" && true); //null
+//Hello, 44 = truthy, null= falsy , short-circuiting not evaluate 'jay' and 'true'.
+
+// Practical Example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach"); // mushrooms ['spinach']
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach"); // mushrooms ['spinach']
+
+//Ex: Function Execution:
+let user = {
+  name: "Alice",
+  login: function () {
+    console.log("User logged in");
+  },
+};
+user && user.login();
+// Output: User logged in
+// user = truthy, so evaluate next one
+
+//Ex: Setting Default Values:
+let userName = "";
+let displayName = userName || "Guest";
+console.log(displayName);
+// Output: Guest
+// userName = falsy value, so evaluate next one
+
+//Ex: Fallback values:
+let primaryColor = null;
+let secondaryColor = "blue";
+let color = primaryColor || secondaryColor;
+console.log(color);
+// Output: blue
+// primayColor = null = falsy value, so evaluate next one
