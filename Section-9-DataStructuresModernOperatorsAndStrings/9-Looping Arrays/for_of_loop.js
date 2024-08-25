@@ -52,3 +52,116 @@ const restaurant = {
       );
     },
   };
+
+  const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]; // expand array by (...)
+  console.log(menu)
+  //for_of loop
+  for (const item of menu) {
+    console.log(item)
+  }
+        // output:
+        // Smosa
+        // Garlic Bread
+        // Salad
+        // Kachori
+        // Pizza
+        // Pasta
+        // Bhature
+
+
+
+// array.entries(): method
+for (const item of menu.entries()) {    // array.entries(): method
+    console.log(item)
+}
+
+// output: array--> [index, 'value']
+// [0, 'Smosa']
+// [1, 'Garlic Bread']
+// [2, 'Salad']
+// [3, 'Kachori']
+// [4, 'Pizza']
+// [5, 'Pasta']
+// [6, 'Bhature']
+
+console.log(menu.entries())  // array iterator
+console.log(...menu.entries())  // now work
+// same output: array--> [index, 'value']
+// [0, 'Smosa']
+// [1, 'Garlic Bread']
+// [2, 'Salad']
+// [3, 'Kachori']
+// [4, 'Pizza']
+// [5, 'Pasta']
+// [6, 'Bhature']
+
+console.log([...menu.entries()])
+// same output: array--> [index, 'value']
+// [0, 'Smosa']
+// [1, 'Garlic Bread']
+// [2, 'Salad']
+// [3, 'Kachori']
+// [4, 'Pizza']
+// [5, 'Pasta']
+// [6, 'Bhature']
+
+// to print nice menu-----------------------------
+for (const item of menu.entries()) {    // array.entries(): method
+  console.log(`${item[0]+1} : ${item[1]}`)
+}
+// or use destructuring assignment
+for (const [item, element] of menu.entries()) {    // array.entries(): method
+  console.log(`${item +1} : ${element}`)
+}
+
+//output:
+// 1 : Smosa
+// 2 : Garlic Bread
+// 3 : Salad
+// 4 : Kachori
+// 5 : Pizza
+// 6 : Pasta
+// 7 : Bhature
+
+//------------------------------------------------------------------------
+const arr=  ["Indian", "Pizzeria", "Vegetarian", "Organic"]
+
+console.log(arr) // print array:['Indian', 'Pizzeria', 'Vegetarian', 'Organic']
+console.log(...arr) //expand array:Indian Pizzeria Vegetarian Organic
+console.log(arr.entries())  // Array Iterator {}
+console.log(...arr.entries())
+//[0, 'Indian']  [1, 'Pizzeria']  [2, 'Vegetarian']  [3, 'Organic']
+
+for ( i in arr){
+  console.log(arr[i])
+}
+  //output:
+  // Indian
+  // Pizzeria
+  // Vegetarian
+  // Organic
+
+// for (i=0; i <= arr.length; i++) console.log(arr[i])  // repeating
+
+for ( i of arr) console.log(i)
+for ( i of arr.entries()) console.log(i)
+  // [0, 'Indian']
+  // [1, 'Pizzeria']
+  // [2, 'Vegetarian']
+  // [3, 'Organic']
+for ( i of arr.entries()) console.log(i[0],i[1])
+  // i[0]   i[1]
+  // 0  'Indian'
+  // 1  'Pizzeria'
+  // 2  'Vegetarian'
+  // 3  'Organic'
+for ( i of arr.entries()) console.log(i[0]+1,i[1])
+for ( [i, ele] of arr.entries()) console.log(i+1,ele)
+
+  // 1 'Indian'
+  // 2 'Pizzeria'
+  // 3 'Vegetarian'
+  // 4 'Organic'
+
+// let [a,el] = arr.entries();
+// console.log(a,el)

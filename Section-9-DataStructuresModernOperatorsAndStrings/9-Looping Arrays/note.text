@@ -1,0 +1,100 @@
+.entries():
+The .entries() method in JavaScript can be used with both objects and arrays, 
+but it works a bit differently for each.
+
+For Arrays:
+The Array.prototype.entries() method returns a new Array Iterator object 
+that contains the key/value pairs for each index in the array.
+
+Syntax: array.entries()
+
+Example:
+const array = ['a', 'b', 'c'];
+
+for (const [index, element] of array.entries()) {
+  console.log(index, element);
+}
+// Output:
+// 0 'a'
+// 1 'b'
+// 2 'c'
+
+
+For Objects:
+The Object.entries() method returns an array of a given object’s own enumerable 
+string-keyed property [key, value] pairs. This is useful for iterating over an 
+object’s properties.
+
+Syntax: Object.entries(obj)
+
+Example1
+
+const person = {
+  name: "Alice",
+  age: 30,
+  city: "New York"
+};
+
+console.log(Object.entries(person));
+// Output: [['name', 'Alice'], ['age', 30], ['city', 'New York']]
+
+
+Example
+const person = {
+  name: "Alice",
+  age: 30,
+  city: "New York"
+};
+Using Object.entries(person) will return:
+
+[
+  ["name", "Alice"],
+  ["age", 30],
+  ["city", "New York"]
+]
+
+Use Cases:
+Iterating over objects: Easily loop through key-value pairs.
+Converting objects to maps: Useful for converting objects to Map objects.
+Array iteration: Access both index and value while looping through arrays.
+
+Usage
+You can use Object.entries() to iterate over the key-value pairs of an object:
+
+
+const person = {
+  name: "Alice",
+  age: 30,
+  city: "New York"
+};
+
+for (const [key, value] of Object.entries(person)) {
+  console.log(`${key}: ${value}`);
+}
+// Output:
+// name: Alice
+// age: 30
+// city: New York
+
+Converting an Object to a Map
+You can also convert an object to a Map using Object.entries():
+
+const person = {
+  name: "Alice",
+  age: 30,
+  city: "New York"
+};
+
+const personMap = new Map(Object.entries(person));
+console.log(personMap);
+// Output: Map { 'name' => 'Alice', 'age' => 30, 'city' => 'New York' }
+
+
+
+
+
+
+
+
+
+
